@@ -1,103 +1,105 @@
 :root {
-    --primary-color: #4a148c;
-    --secondary-color: #7b1fa2;
-    --background-color: #f0f2f5;
-    --surface-color: #ffffff;
-    --text-color: #333333;
-    --text-light: #ffffff;
-    --font-family: 'Poppins', sans-serif;
+--primary-color: #4a148c;
+--secondary-color: #7b1fa2;
+--background-color: #f0f2f5;
+--surface-color: #ffffff;
+--text-color: #333333;
+--text-light: #ffffff;
+--font-family: 'Poppins', sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+scroll-behavior: smooth;
 }
 
 body {
-    font-family: var(--font-family);
-    background-color: var(--background-color);
-    color: var(--text-color);
+font-family: var(--font-family);
+background-color: var(--background-color);
+color: var(--text-color);
 }
 
 header {
-    background-color: var(--surface-color);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+background-color: var(--surface-color);
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+position: sticky;
+top: 0;
+z-index: 1000;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
-    height: 80px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+max-width: 1200px;
+margin: 0 auto;
+padding: 1rem 2rem;
+height: 80px;
 }
 
 .logo {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--primary-color);
+font-size: 1.75rem;
+font-weight: 700;
+color: var(--primary-color);
 }
 
 nav ul {
-    display: flex;
-    list-style: none;
+display: flex;
+list-style: none;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    margin: 0 0.25rem;
-    transition: all 0.3s ease;
-    border-radius: 5px;
+text-decoration: none;
+color: var(--text-color);
+font-weight: 600;
+padding: 0.5rem 1rem;
+margin: 0 0.25rem;
+transition: all 0.3s ease;
+border-radius: 5px;
 }
 
-nav ul li a:hover {
-    color: var(--text-light);
-    background-color: var(--primary-color);
+/* Scroll Spy Active Link Style */
+nav ul li a:hover,
+nav ul li a.active-link {
+color: var(--text-light);
+background-color: var(--primary-color);
 }
 
 .hamburger {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
+display: none;
+font-size: 2rem;
+cursor: pointer;
 }
 
 section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 5rem 2rem;
+max-width: 1100px;
+margin: 0 auto;
+padding: 5rem 2rem;
 }
 
 section h1 {
-    font-size: 2.8rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    color: var(--primary-color);
+font-size: 2.8rem;
+text-align: center;
+margin-bottom: 3rem;
+color: var(--primary-color);
 }
 
 hr {
-    border: none;
-    height: 1px;
-    background-color: #e0e0e0;
-    margin: 4rem auto;
+border: none;
+height: 1px;
+background-color: #e0e0e0;
+margin: 4rem auto;
 }
 
 #home {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+display: flex;
+align-items: center;
+gap: 2rem;
 }
 
 .home-left-section { flex: 1; }
@@ -108,6 +110,59 @@ hr {
 .home-right-section img { width: 320px; border-radius: 50%; border: 7px solid var(--surface-color); box-shadow: 0 0 20px rgba(0,0,0,0.15); }
 
 #about p { text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto; }
+
+/* SKILLS SECTION STYLES (Professional Look) */
+#skills .skills-container {
+display: flex;
+justify-content: center;
+gap: 2rem;
+flex-wrap: wrap;
+max-width: 1000px;
+margin: 0 auto;
+}
+
+.skill-category {
+background-color: var(--surface-color);
+padding: 2rem 1.5rem;
+border-radius: 10px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Slightly stronger shadow */
+flex: 1;
+min-width: 250px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+border-top: 5px solid var(--primary-color);
+}
+
+.skill-category:hover {
+transform: translateY(-5px);
+box-shadow: 0 8px 20px rgba(74, 20, 140, 0.2);
+}
+
+.skill-category h3 {
+color: var(--primary-color);
+margin-bottom: 1.5rem;
+text-align: center;
+font-size: 1.5rem;
+font-weight: 700;
+padding-bottom: 0.5rem;
+}
+
+.skill-list {
+display: flex;
+flex-wrap: wrap;
+gap: 0.75rem;
+justify-content: center;
+}
+
+.skill-item {
+background-color: var(--secondary-color);
+color: var(--text-light);
+padding: 0.6rem 1.1rem;
+border-radius: 20px; 
+font-size: 0.95rem;
+font-weight: 600;
+transition: background-color 0.3s ease;
+box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
 
 #projects .projects-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
 .project-card { background-color: var(--surface-color); border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
@@ -127,13 +182,18 @@ footer { text-align: center; padding: 2rem; margin-top: 4rem; background-color: 
 
 .btn { display: inline-block; padding: 12px 28px; background-color: var(--primary-color); color: var(--text-light); text-decoration: none; border-radius: 5px; font-weight: 600; transition: background-color 0.3s ease; border: 2px solid var(--primary-color); }
 .btn:hover { background-color: var(--secondary-color); border-color: var(--secondary-color); }
-.btn-secondary { background-color: transparent; color: var(--primary-color); }
+.btn-secondary { background-color: transparent; color: var(--primary-color);  }
 .btn-secondary:hover { background-color: var(--primary-color); color: var(--text-light); }
 
 @media (max-width: 768px) {
-    .hamburger { display: block; }
-    nav ul { display: none; position: absolute; top: 80px; left: 0; width: 100%; background-color: var(--surface-color); flex-direction: column; align-items: center; padding: 1rem 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    nav ul.nav-active { display: flex; }
-    #home { flex-direction: column-reverse; text-align: center; }
-    .home-left-section h1, .home-left-section h2 { text-align: center; }
+.hamburger { display: block; }
+nav ul { display: none; position: absolute; top: 80px; left: 0; width: 100%; background-color: var(--surface-color); flex-direction: column; align-items: center; padding: 1rem 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+nav ul.nav-active { display: flex; }
+#home { flex-direction: column-reverse; text-align: center; }
+.home-left-section h1, .home-left-section h2 { text-align: center; }
+
+/* Skills mobile adjustment */
+.skill-category {
+min-width: 100%;
+}
 }

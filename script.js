@@ -1,30 +1,68 @@
+document.addEventListener('DOMContentLoaded', () => {
 
-var typed = new Typed(".auto-type", {
-    strings: ["Frontend Developer", "Problem Solver", "UI Designer"],
-    typeSpeed: 100, 
-    backSpeed: 50,  
-    loop: true      
-});
+    // --- Mobile Navigation Toggle ---
+    const hamburger = document.querySelector('.hamburger');
+    const navUl = document.querySelector('nav ul');
 
+    hamburger.addEventListener('click', () => {
+        navUl.classList.toggle('nav-active');
+    });
 
+    // Close mobile nav when a link is clicked
+    navUl.querySelectorAll('li a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navUl.classList.contains('nav-active')) {
+                navUl.classList.remove('nav-active');
+            }
+        });
+    });
 
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('nav ul');
+    // --- Typed.js for Auto-Typing Effect ---
+    const typeElement = document.querySelector('.auto-type');
+    if (typeElement) {
+        new Typed(typeElement, {
+            // Strings updated to reflect diverse skill set
+            strings: ["Python Developer", "Cyber Security Enthusiast", "Frontend Developer", "Problem Solver"],
+            typeSpeed: 75,
+            backSpeed: 50,
+            loop: true
+        });
+    }
 
+    // --- SCROLL SPY IMPLEMENTATION (IntersectionObserver) ---
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav ul li a');
 
-hamburger.addEventListener('click', () => {
-    
-    navMenu.classList.toggle('nav-active');
-});
+    // Options for the Intersection Observer: triggers when 50% of the section is visible
+    const observerOptions = {
+        root: null, 
+        rootMargin: '0px',
+        threshold: 0.5 
+    };
 
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentSectionId = entry.target.id;
+                
+                // 1. Remove 'active-link' from all links
+                navLinks.forEach(link => {
+                    link.classList.remove('active-link');
+                });
 
-const navLinks = document.querySelectorAll('nav ul li a');
+                // 2. Add 'active-link' to the link corresponding to the visible section
+                const activeLink = document.querySelector(`nav ul li a[href="#${currentSectionId}"]`);
+                if (activeLink) {
+                     activeLink.classList.add('active-link');
+                }
+            }
+        });
+    }, observerOptions);
 
-
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (navMenu.classList.contains('nav-active')) {
-            navMenu.classList.remove('nav-active');
+    // Attach the observer to all section elements
+    sections.forEach(section => {
+        if (section.id) {
+            observer.observe(section);
         }
     });
 });
